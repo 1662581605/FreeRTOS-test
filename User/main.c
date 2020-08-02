@@ -109,5 +109,13 @@ int main(void)
     /* 开发板硬件初始化 */
     BSP_Init();
     printf("这是一个[野火]-STM32全系列开发板-FreeRTOS-静态创建单任务!\r\n");
+    /* 创建 AppTaskCreate 任务 */
+    AppTaskCreate_Handle = xTaskCreateStatic((TaskFunction_t    )AppTaskCreate,     //任务函数
+                                                            (const char*    )"AppTaskCreate",       //任务名称
+                                                            (uint32_t       )128,   //任务堆栈大小
+                                                            (void*          )NULL,              //传递给任务函数的参数
+                                                            (UBaseType_t    )3,     //任务优先级
+                                                            (StackType_t*   )AppTaskCreate_Stack,   //任务堆栈
+                                                            (StaticTask_t*  )&AppTaskCreate_TCB);   //任务控制块   
 }
 /********************************END OF FILE****************************/
