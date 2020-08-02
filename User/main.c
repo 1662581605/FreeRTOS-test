@@ -106,6 +106,8 @@ void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer,
 
 int main(void)
 {	
-  
+    /* 开发板硬件初始化 */
+    BSP_Init();
+    printf("这是一个[野火]-STM32全系列开发板-FreeRTOS-静态创建单任务!\r\n");
 }
 /********************************END OF FILE****************************/
